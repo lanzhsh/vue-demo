@@ -1,4 +1,4 @@
-# lan-vue-demo
+# vue-demo
 
 > A Vue.js project
 
