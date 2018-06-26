@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-![demo vue](https://https://github.com/lanzhsh/vue-demo/blob/master/iamges/demo-vue.gif)
+![demo vue](https://https://github.com/lanzhsh/vue-demo/blob/master/images/demo-vue.gif)
 
 ``` bash
 # install dependencies
