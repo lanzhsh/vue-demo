@@ -1,11 +1,8 @@
 <template>
 <div class="tabs">
 
-<el-menu default-active="1-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSel" :collapse="isCollapse" background-color="rgb(48, 65, 86)" text-color="rgb(191, 203, 217)" active-text-color="rgb(64, 158, 255)">
-  <!-- <div @click="changeTabs" :class="['open-tabs',{'close-tabs':closeFlag}]">
-    <i class="el-icon-caret-right"></i>
-    <span class="tabs-content">展/收</span>
-  </div> -->  
+<el-menu default-active="1-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSel" :collapse="isCollapse"
+ background-color="rgb(48, 65, 86)" text-color="rgb(191, 203, 217)" active-text-color="rgb(64, 158, 255)" :collapse-transition="false">
   <div v-for="(item,index) in tabArr" :key="index">
   <el-submenu :index="String(index+1)" v-if="item.childFlag">
     <template slot="title">
