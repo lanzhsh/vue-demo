@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-![demo vue](https://github.com/lanzhsh/vue-demo/tree/master/images/map.png)
+![demo vue](https://github.com/lanzhsh/vue-demo/blob/master/images/vue-demo.png)
 
 ``` bash
 # install dependencies
