@@ -1,13 +1,13 @@
-﻿export const dateToFormat = (date) =>{
+﻿const dateToFormat = (date) =>{
 	date.toLocaleString("en-US", {
 		hour12: false
 	}).replace(/\b\d\b/g, '0$&').replace(new RegExp('/', 'gm'), '-')
 };
-export const forMatToDate = (date) =>{
+const forMatToDate = (date) =>{
 	let dateArr = date.split(':');
 	return new Date(2017, 10, 19, dateArr[0], dateArr[1], dateArr[2])
 };
-export const obtainNowDate =()=>{
+const obtainNowDate =()=>{
 	let date = new Date();
 	let year = date.getFullYear();
 	let month = date.getMonth() + 1;
@@ -21,46 +21,70 @@ export const obtainNowDate =()=>{
   }) 
   return year + '-' + arr[0] + '-' + arr[1] + ' ' + arr[2] + ':' + arr[3] + ':' + arr[4]
 };
-export const returnTimestamp = (strTime) => {
+const returnTimestamp = (strTime) => {
 	let middleDate = new Date(Number(strTime));
 	return middleDate.toLocaleString('zh-CN', {
 		hour12: false
 	}).replace(/\b\d\b/g, '0$&').replace(new RegExp('/', 'gm'), '-')
 };
-export const compareOneLessTwo = (dateOne, dateTwo) =>{
+const compareOneLessTwo = (dateOne, dateTwo) =>{
 	return Number(dateOne.replace(/\-/g, "")) < Number(dateTwo.replace(/\-/g, ""))
 };
-export const judgeArr = (arr) =>{
+const judgeArr = (arr) =>{
 	if (Array.isArray(arr)) {
 		return true
 	}
 };
-export const removeRepeatArr = (arr) =>{
+const removeRepeatArr = (arr) =>{
 	return Array.from(new Set(arr))
 };
-export const orderAscendArr = (arr) =>{
+const orderAscendArr = (arr) =>{
 	arr.sort((a, b) =>{
 		return a - b
 	})
 };
-export const allArrSatisfact = (arr, compare, value) =>{
+const allArrSatisfact = (arr, compare, value) =>{
 	return arr.every((arr) =>{
 		return arr + compare + value
 	})
 };
-export const judgeNum = (num) =>{
+const judgeNum = (num) =>{
 	if (typeof num1 == 'number') {
 		return true
 	} else {
 		return false
 	}
 };
-export const judgeNumOrLetter = (data) =>{
+const judgeNumOrLetter = (data) =>{
 	let reg = /^[0-9a-zA-Z]*$/g;
 	if (reg.test(data)) {
 		return true
 	}
 };
-export const trimLeftOrRight = (str) =>{　　
+const trimLeftOrRight = (str) =>{　　
 	return str.replace(/(^s)|(s$)/g, "")
 };
+const isObjectEqual=(oneData, twoData) =>{
+	let twoFlag=JSON.stringify(oneData)===JSON.stringify(twoData);
+	if(twoFlag){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+export{
+	dateToFormat,
+	forMatToDate,
+	obtainNowDate,
+	returnTimestamp,
+	compareOneLessTwo,
+	judgeArr,
+	removeRepeatArr,
+	orderAscendArr,
+	allArrSatisfact,
+	judgeNum,
+	judgeNumOrLetter,
+	trimLeftOrRight,
+	isObjectEqual
+}

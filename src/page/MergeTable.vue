@@ -10,6 +10,18 @@
   </table>
 </template>
 
+<script>
+  export default{
+    data(){
+      return{
+        tableHead:['姓名','性别','年龄','学科','分数'],
+        tableBody:[{name:'曹操',sex:'女',age:'25岁',disciplineArr:[{discipline:'Javascript',score:'100分'},{discipline:'CSS',score:'100分'},{discipline:'html',score:'100分'},{discipline:'Java',score:'80分'}]},
+        {name:'小乔',sex:'男',age:'25岁',disciplineArr:[{discipline:'Javascript',score:'80分'},{discipline:'CSS',score:'80分'},{discipline:'html',score:'80分'},{discipline:'Java',score:'90分'}]}]
+      }
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
 .merge-table{
    width:100%;
@@ -44,16 +56,4 @@
   }
 }
 </style>
-
-<script>
-  export default{
-    data(){
-      return{
-        tableHead:['姓名','性别','年龄','学科','分数'],
-        tableBody:[{name:'曹操',sex:'女',age:'25岁',disciplineArr:[{discipline:'Javascript',score:'100分'},{discipline:'CSS',score:'100分'},{discipline:'html',score:'100分'},{discipline:'Java',score:'80分'}]},
-        {name:'小乔',sex:'男',age:'25岁',disciplineArr:[{discipline:'Javascript',score:'80分'},{discipline:'CSS',score:'80分'},{discipline:'html',score:'80分'},{discipline:'Java',score:'90分'}]}]
-      }
-    }
-  }
-</script>
 

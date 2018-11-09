@@ -8,26 +8,40 @@ import router from './router'
 import echarts from 'echarts'
 import axios from 'axios'
 import store from './store'
-
-//富文本编辑
-import '../static/UE/ueditor.config.js'
-import '../static/UE/ueditor.all.min.js'
-import '../static/UE/lang/zh-cn/zh-cn.js'
-import '../static/UE/ueditor.parse.min.js'
+import QS from 'querystring'
 
 Vue.use(ElementUI);
 
-Vue.prototype.$echarts=echarts;
+Vue.prototype.$echarts = echarts;
+Vue.prototype.$QS = QS;
 
 //设置axios拦截器
 axios.interceptors.request.use(config => {
   config.headers.cityCode = window.sessionStorage.cityCode //jsCookie.get('cityCode')
   return config
 });
-axios.interceptors.response.use((response) =>{
+axios.interceptors.response.use((response) => {
   //处理data
   return response;
 });
+
+//导航钩子守卫
+router.beforeEach((to, from, next) => {
+  let token = sessionStorage.getItem('userName');
+  let path = to.path
+  if (path === '/login') {
+    next()
+    return
+  }
+  if (token) {
+    next();
+  } else {
+    // next({
+      // path: '/login'
+    // })
+    next();
+  }
+})
 
 Vue.config.productionTip = false
 

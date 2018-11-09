@@ -3,6 +3,7 @@
   <div class="operation">
     <el-button type="primary" @click="addData">新增</el-button><el-button type="primary" @click="editData">修改</el-button>
   </div>
+    <el-input v-model="comInp" placeholder="请输入内容"></el-input>
     <el-table
       :data="comData"
       style="width: 100%"
@@ -55,7 +56,7 @@
   </style>
   
 
-  <script>
+<script>
 import { mapGetters, mapActions } from "vuex";
 import addTable from '@/components/addTable';
 export default {
@@ -69,7 +70,8 @@ export default {
       comData:[],
       addFlag:{flag:false},
       multipleSelection: [],
-      editTableData:''
+      editTableData:'',
+      comInp:''
     }
   },
   computed: mapGetters({
@@ -80,6 +82,9 @@ export default {
       this.comTable=val;
       this.comData=val;
       this.totalItems=val.length;
+    },
+    comInp(val){
+      console.log('comInp值为',val);   
     }
   },
   mounted() {
