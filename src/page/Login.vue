@@ -49,9 +49,6 @@
 </template>
 
 <script>
-// import * as login from "@/api/login";
-import api from '@/utils/api';
-import request from '@/utils/request';
 export default {
   data() {
     return {
