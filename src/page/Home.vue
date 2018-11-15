@@ -5,7 +5,7 @@
       <span class="top-name">vue-demo</span>
       <span class="top-shrink" @click="spreadShrink">
         <i v-if="shrinkFlag" class="iconfont icon-sidebar-toggle"></i>
-        <i v-else class="iconfont icon-sanhengxian"></i>
+        <i v-else class="iconfont icon-sanhengxian"></i>{{shrinkFlag}}
       </span>
       <span class="top-crumbs">
         <el-breadcrumb separator="/">
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="tab">
+    <div :class="['tab',{'tab-collapse':!shrinkFlag}]">
       <tabs :isCollapse="!shrinkFlag" @tabsRoute="tabsRoute" @presentRoute="presentRoute"></tabs>
     </div>
 
@@ -165,16 +165,30 @@ body {
   .tab {
     float: left;
     height: calc(100% - 60px);
+    overflow-y:auto;
+    overflow-x:hidden;
+   background-color: rgb(48, 65, 86);
+
+    // 导航未折叠
     .tabs {
+      width:200px;
       height: 100%;
       .el-menu {
         height: 100%;
       }
     }
+
+    // 导航折叠
+    .tabs-collapse{
+      width:55px;
+    }
+    .tab-collapse{
+      width:55px;
+    }
   }
   .router-child {
     float: left;
-    width: calc(100% - 241px);
+    width: calc(100% - 245px);
     height: calc(100% - 100px);
     padding: 40px 0 0 40px;
     overflow: auto;
