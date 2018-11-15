@@ -10,7 +10,7 @@ function request({
   const token=sessionStorage.getItem("token")||'';
   return new Promise((resolve, reject) => {
   axios({
-    baseURL:baseUrl,
+    // baseURL:baseUrl,
     url,
     method,
     headers: {'i-manage-token': token,'X-Requested-With': 'XMLHttpRequest','withCredentials': true,},

@@ -4,20 +4,23 @@ import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import router from './router'
-import echarts from 'echarts'
-import axios from 'axios'
-import store from './store'
-import QS from 'querystring'
+import router from './router';
+import echarts from 'echarts';
+import axios from 'axios';
+import store from './store';
+import QS from 'querystring';
+import api from '@/utils/api';
+import request from '@/utils/request';
 
 Vue.use(ElementUI);
 
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$QS = QS;
-
+Vue.prototype.$api = api;
+Vue.prototype.$request = request;
 //设置axios拦截器
 axios.interceptors.request.use(config => {
-  config.headers.cityCode = window.sessionStorage.cityCode //jsCookie.get('cityCode')
+  config.headers.token = window.sessionStorage.token //jsCookie.get('cityCode')
   return config
 });
 axios.interceptors.response.use((response) => {

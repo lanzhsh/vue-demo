@@ -1,4 +1,3 @@
-// import * as comTableApi from '@/api/comTable'
 import api from '@/utils/api';
 import request from '@/utils/request';
 

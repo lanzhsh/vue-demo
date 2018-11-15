@@ -85,19 +85,12 @@ export default {
     };
 
     //调用接口
-    request({
-      url:api.login,
+    this.$request({
+      url:this.$api.login,
       data:{ userName: 123 }
     }).then(res=>{
       console.log('res值为',res);
     })
-    // login.loginPost('/api/login',this.$QS.stringify(this.forms),(data)=>{
-    //   console.log('data值为',data);
-    // })
-
-    // login.loginPost('/api/login',{userName:'web',password:123},(data)=>{
-    //   console.log('data值为',data);
-    // })
   },
   methods: {
     handSearch() {
