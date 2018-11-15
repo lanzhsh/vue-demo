@@ -49,7 +49,9 @@
 </template>
 
 <script>
-import * as login from "@/api/login";
+// import * as login from "@/api/login";
+import api from '@/utils/api';
+import request from '@/utils/request';
 export default {
   data() {
     return {
@@ -83,9 +85,12 @@ export default {
     };
 
     //调用接口
-    login.loginPost("/api/loginOut", { userName: 123 }, data => {
-      console.log("data值为", data);
-    });
+    request({
+      url:api.login,
+      data:{ userName: 123 }
+    }).then(res=>{
+      console.log('res值为',res);
+    })
     // login.loginPost('/api/login',this.$QS.stringify(this.forms),(data)=>{
     //   console.log('data值为',data);
     // })
