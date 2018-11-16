@@ -5,7 +5,7 @@
       <span class="top-name">vue-demo</span>
       <span class="top-shrink" @click="spreadShrink">
         <i v-if="shrinkFlag" class="iconfont icon-sidebar-toggle"></i>
-        <i v-else class="iconfont icon-sanhengxian"></i>{{shrinkFlag}}
+        <i v-else class="iconfont icon-sanhengxian"></i>
       </span>
       <span class="top-crumbs">
         <el-breadcrumb separator="/">
@@ -31,14 +31,16 @@
       <tabs :isCollapse="!shrinkFlag" @tabsRoute="tabsRoute" @presentRoute="presentRoute"></tabs>
     </div>
 
-    <div :class="['router-child',{'router-child-shrink':!shrinkFlag}]">
-      <div class="nav-level">
+    <!-- 副导航 -->
+    <div class="nav-level">
       <span v-for="(tag,index) in tags" :key="index" @click="clickTag(index)">
         <el-tag closable @close="handleClose(tag)" :type="tag.type">
           {{tag.name}}
         </el-tag>
       </span>
-      </div>
+    </div>
+
+    <div :class="['router-child',{'router-child-shrink':!shrinkFlag}]">
       <router-view />
     </div>
 
@@ -187,14 +189,15 @@ body {
     }
   }
   .router-child {
-    float: left;
-    width: calc(100% - 245px);
-    height: calc(100% - 100px);
-    padding: 40px 0 0 40px;
+    float: right;
+    width: calc(100% - 211px);
+    height: calc(100% - 96px);
+    padding:20px;
+    box-sizing: border-box;
     overflow: auto;
   }
   .router-child-shrink {
-    width: calc(100% - 95px);
+    width: calc(100% - 61px);
   }
   .el-tag {
     cursor: pointer;
@@ -261,7 +264,6 @@ body {
 //横向导航
 .nav-level {
   text-align: left;
-  margin: -40px 0 40px -40px;
   border-bottom: 1px solid #d8dce5;
   border-top: 1px solid #d8dce5;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);

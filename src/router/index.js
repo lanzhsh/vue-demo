@@ -3,14 +3,15 @@ import Router from 'vue-router'
 //路由懒加载
 const Login=()=>import('@/page/Login')
 const Home=()=>import('@/page/Home')
-const Map=()=>import('@/page/Map')
-const ComEcharts=()=>import('@/page/ComEcharts')
-const SpeEcharts=()=>import('@/page/SpeEcharts')
-const ComTable=()=>import('@/page/ComTable')
-const SpeTable=()=>import('@/page/SpeTable')
-const MergeTable=()=>import('@/page/MergeTable')
-const TextEditor=()=>import('@/page/TextEditor')
-const Drag=()=>import('@/page/Drag')
+const Map=()=>import('@/page/dataVisual/Map')
+const ComEcharts=()=>import('@/page/dataVisual/ComEcharts')
+const SpeEcharts=()=>import('@/page/dataVisual/SpeEcharts')
+const ComTable=()=>import('@/page/tableClassify/ComTable')
+const SpeTable=()=>import('@/page/tableClassify/SpeTable')
+const MergeTable=()=>import('@/page/tableClassify/MergeTable')
+const Drag=()=>import('@/page/tableClassify/Drag')
+const TextEditor=()=>import('@/page/richText/TextEditor')
+const TextEditorFull=()=>import('@/page/openPage/TextEditorFull')
 
 Vue.use(Router)
 
@@ -34,6 +35,9 @@ export default new Router({
     },
     {
       path:'/login',name:'login',component:Login
+    },
+    {
+      path:'/textEditorFull',name:'textEditorFull',component:TextEditorFull
     }
   ]
 })

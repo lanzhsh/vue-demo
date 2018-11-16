@@ -32,7 +32,8 @@ export default {
 /* 滚动槽 */
 ::-webkit-scrollbar-track {    
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);   
-   border-radius: 10px;}
+   border-radius: 10px;
+   }
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {    
   border-radius: 10px;    
@@ -40,7 +41,22 @@ export default {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 /*激活滚动条样式*/
-::-webkit-scrollbar-thumb:window-inactive {    
-  /* background: rgba(255,0,0,0.4); */
+::-webkit-scrollbar-thumb:window-inactive {   
+}
+
+/* 设置滚动条的样式 */
+.tab::-webkit-scrollbar {    
+  width: 5px;
+  height:5px;
+  display: none;
+}
+.tab:hover::-webkit-scrollbar { 
+  display:block;
+}
+/* 滚动槽 */
+.tab::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 0;    
+  background-color: rgb(48, 65, 86);
 }
 </style>

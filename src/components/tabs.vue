@@ -1,5 +1,5 @@
 <template>
-<div class="tabs">
+<div :class="['tabs',{'tabs-collapse':isCollapse}]">
 
 <el-menu default-active="1-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSel" :collapse="isCollapse"
  background-color="rgb(48, 65, 86)" text-color="rgb(191, 203, 217)" active-text-color="rgb(64, 158, 255)" :collapse-transition="false">
@@ -58,7 +58,7 @@ export default {
           ]
         },
         { name: "富文本编辑器",icon:"icon-fuwenben", childFlag: false, routerData: "textEditor" },
-        { name: "富文本编辑器2",icon:"icon-fuwenben", childFlag: false, routerData: "textEditor" },
+        { name: "新开一个页面",icon:"icon-fuwenben", childFlag: false, routerData: "textEditorFull" },
       ],
 
       routeArr:[]
@@ -75,10 +75,15 @@ export default {
 
     handleSel(key, keyPath) {
       if (keyPath.length==1) {
+        //判断是否新开
+        if(this.tabArr[key-1].name!="新开一个页面"){
         this.$router.push({ path: "/"+this.tabArr[key-1].routerData });
         //贮存routeObj值
         this.pushRoute({name:this.tabArr[key-1].name,routerData:this.tabArr[key-1].routerData,type:"info"});
         this.$emit('presentRoute',[this.tabArr[key-1].name]);
+        }else{
+          window.open(window.location.origin+'/'+this.tabArr[key-1].routerData);
+        }
       } else {
         this.tabArr[keyPath[0] - 1].tabChild.forEach(item => {
           if (item.index == keyPath[1]){

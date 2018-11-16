@@ -11,9 +11,8 @@
 
 <style lang="scss" scoped>
 .map{
-  width:104%;
-  height:105%;
-  margin:-40px 0 0 -40px;
+  width:100%;
+  height:100%;
   #container{
     width:100%;
     height:100%;
