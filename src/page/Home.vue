@@ -20,7 +20,7 @@
         <div class="right-full" @click="fullScreen"><span class="iconfont icon-quanping"></span></div>
         <el-dropdown :hide-on-click="false">
           <span class="el-dropdown-link">
-              <img  class="login-img" src="../assets/avactor.png" alt="">用户
+              <img  class="login-img" src="../assets/avactor.png" alt=""><span class="login-text">用户</span>
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -284,6 +284,9 @@ body {
       margin-top: 8px;
       border-radius: 6px;
       cursor: pointer;
+    }
+    .login-text{
+      color:#FFFFFF;
     }
   }
 }
