@@ -2,7 +2,10 @@
   <div class="home">
 
     <div class="top">
-      <span class="top-name">vue-demo</span>
+      <div :class="['top-left',{'top-left-shrink':!shrinkFlag}]">
+        <img  class="top-img" src="../assets/avactor.png" alt="">
+        <span class="top-name" v-if="shrinkFlag">vue-demo</span>
+      </div>
       <span class="top-shrink" @click="spreadShrink">
         <i v-if="shrinkFlag" class="iconfont icon-sidebar-toggle"></i>
         <i v-else class="iconfont icon-sanhengxian"></i>
@@ -164,6 +167,21 @@ body {
     text-align: left;
     color: rgb(64, 158, 255);
   }
+  .top-name{
+    float:left;
+    width: 140px;
+    text-align: left;
+    font-size:20px;
+    margin-left:4px;
+  }
+  .top-img{
+    width:30px;
+    height:30px;
+    float:left;
+    margin:15px 0 0 10px;
+    border-radius: 6px;
+  }
+
   .tab {
     float: left;
     height: calc(100% - 60px);
@@ -205,17 +223,26 @@ body {
 }
 
 //顶部样式
-.home .top-name {
-  display: inline-block;
-  width: 200px;
-  text-align: center;
-}
 .home {
   .top {
     position: relative;
   }
+
+  //左侧标题和logo
+  .top-left{
+    width:200px;
+    background:#1f2d3d;
+  }
+  .top-left-shrink{
+    width:54px;
+  }
+  .top-name{
+    color:#FFFFFF;
+  }
+
   //收缩导航
   .top-shrink {
+    margin-left:8px;
     cursor: pointer;
     color: #303133;
     line-height: 60px;
