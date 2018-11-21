@@ -19,6 +19,7 @@ const actions = {
       method:"GET",
       params:{},
     }).then(res=>{
+      console.log('res值为',res);
       //这里特别坑爹,axios读取本地的json转化为字符串了,所以要通过eval转化为对象
       commit('setTableData', eval('('+res.data+')').tabData);
     })
