@@ -58,7 +58,13 @@ export default {
           ]
         },
         { name: "富文本编辑器",icon:"icon-fuwenben", childFlag: false, routerData: "textEditor" },
-        { name: "新开一个页面",icon:"icon-fuwenben", childFlag: false, routerData: "textEditorFull" },
+        { name: "文件和图片",icon:"icon-tupian", childFlag: true, 
+        tabChild: [
+            { index: "4-1", content: "传文件", routerData: "uploadFile" },
+            // { index: "4-2", content: "传文件到云", routerData: "fileCloud" },
+            // { index: "4-3", content: "传图片", routerData: "uploadImg" },
+          ]
+        },
       ],
 
       routeArr:[]
