@@ -28,7 +28,7 @@ export default {
     beforeAvatarUpload() {
       console.log("customEditor值为", this.$refs.customEditor);
       this.$refs.customEditor.innerHTML +=
-        '<img class="inp-img" src="/static/img/avactor.66c4498.png">';
+        '<img src="/static/img/avactor.66c4498.png">';
     },
 
     httpRequest() {}
@@ -49,6 +49,4 @@ export default {
     }
   }
 }
-  .inp-img {
-  }
 </style>
