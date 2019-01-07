@@ -26,7 +26,6 @@ export default {
 
   methods: {
     beforeAvatarUpload() {
-      console.log("customEditor值为", this.$refs.customEditor);
       this.$refs.customEditor.innerHTML +=
         '<img src="/static/img/avactor.66c4498.png">';
     },
