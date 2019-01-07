@@ -57,7 +57,14 @@ export default {
             { index: "2-4", content: "拖拽", routerData: "drag" }
           ]
         },
-        { name: "富文本编辑器",icon:"icon-fuwenben", childFlag: false, routerData: "textEditor" },
+        //只有一级目录配置
+        // { name: "富文本编辑器",icon:"icon-fuwenben", childFlag: false, routerData: "textEditor" },
+        { name: "文本",icon:"icon-fuwenben", childFlag: true, 
+        tabChild: [
+            { index: "3-1", content: "富文本", routerData: "textEditor" },
+            { index: "3-2", content: "自定义输入", routerData: "customEditor" }
+          ]
+        },
         { name: "文件和图片",icon:"icon-tupian", childFlag: true, 
         tabChild: [
             { index: "4-1", content: "传文件", routerData: "uploadFile" },

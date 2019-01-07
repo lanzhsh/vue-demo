@@ -17,6 +17,7 @@ const Drag=()=>import('@/page/tableClassify/Drag')
 
 //富文本
 const TextEditor=()=>import('@/page/richText/TextEditor')
+const CustomEditor=()=>import('@/page/richText/CustomEditor')
 
 //文件和图片上传
 const FileCloud=()=>import('@/page/fileImg/FileCloud')
@@ -40,6 +41,7 @@ export default new Router({
         {path:'/speTable',name:'speTable',component:SpeTable},
         {path:'/mergeTable',name:'mergeTable',component:MergeTable},
         {path:'/textEditor',name:'textEditor',component:TextEditor},
+        {path:'/customEditor',name:'customEditor',component:CustomEditor},
         {path:'/drag',name:'drag',component:Drag},
         {path:'/fileCloud',name:'fileCloud',component:FileCloud},
         {path:'/uploadFile',name:'uploadFile',component:UploadFile},
