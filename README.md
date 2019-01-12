@@ -1,6 +1,11 @@
-# vue-demo
+## vue-demo
 
-> A Vue.js project
+> vue+vue-router+vuex+element+vue-split-table+vue-multiple-check
+> 是一个初学者上手项目的不错demo
+> 持续更新中
+
+## star
+^_^欢迎star,你的star是我更新的动力^_^
 
 ## Build Setup
 

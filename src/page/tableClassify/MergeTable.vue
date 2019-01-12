@@ -1,59 +1,53 @@
 <template>
-  <table class="merge-table">
-    <thead><th v-for="(item,index) in tableHead" :key="index">{{item}}</th></thead>
-    <tbody>
-      <tr v-for="(itemBody,indexBody) in tableBody" :key="indexBody"><td>{{itemBody.name}}</td><td>{{itemBody.sex}}</td><td>{{itemBody.age}}</td>
-      <td><table><tr v-for="(itemDis,indexDis) in itemBody.disciplineArr" :key="indexDis">{{itemDis.discipline}}</tr></table></td>
-      <td><table><tr v-for="(itemDis,indexDis) in itemBody.disciplineArr" :key="indexDis">{{itemDis.score}}</tr></table></td>
-      </tr>
-    </tbody>
-  </table>
+  <split-table :headData="headData" :bodyData="bodyData" @multipleData="multipleData" @editData="editData">
+    <template slot="operate" slot-scope="props">
+      <span @click="splitEdit(props.rowData)">修改</span>
+      <span @click="splitAdd(props.rowData)">新增</span>
+      <span @click="splitDel(props.rowData)">删除</span>
+    </template>
+  </split-table>
 </template>
 
 <script>
-  export default{
-    data(){
-      return{
-        tableHead:['姓名','性别','年龄','学科','分数'],
-        tableBody:[{name:'曹操',sex:'女',age:'25岁',disciplineArr:[{discipline:'Javascript',score:'100分'},{discipline:'CSS',score:'100分'},{discipline:'html',score:'100分'},{discipline:'Java',score:'80分'}]},
-        {name:'小乔',sex:'男',age:'25岁',disciplineArr:[{discipline:'Javascript',score:'80分'},{discipline:'CSS',score:'80分'},{discipline:'html',score:'80分'},{discipline:'Java',score:'90分'}]}]
+  import SplitTable from 'vue-split-table';
+  export default {
+    components: { SplitTable },
+    data () {
+      return {
+         headData: ["城市", "美食", "好玩的地方"],
+      bodyData: [
+        { city: "北京", food: "北京烤鸭", fun: ["故宫", "颐和园", "长城"] },
+        {
+          city: "深圳",food: ["肠粉", "牛肉火锅"],fun: ["西冲", "华侨城", "世界之窗"]
+        },
+        {
+          city: ["重庆", "成都", "武汉"],
+          food: ["重庆老火锅","重庆烤鱼","重庆小面","成都小吃","武汉热干面"],
+          fun: ["洪崖洞", "峨眉山", "黄鹤楼"]
+        }
+      ], 
       }
+    },
+    methods: {
+    splitEdit(rowData) {
+      console.log("rowData值为", rowData);
+    },
+
+    editData(data) {
+      console.log("编辑所在行的值为", data);
+    },
+
+    splitAdd(data) {
+      console.log("新增所在行的值为", data);
+    },
+
+    splitDel(data) {
+      console.log("删除所在行的值为", data);
+    },
+
+    multipleData(data) {
+      console.log("复选框选择的值为", data);
+    }
     }
   }
 </script>
-
-<style lang="scss" scoped>
-.merge-table{
-   width:100%;
-   border:1px solid #dfe6ec;
-   border-collapse: collapse;
-   th{
-    height:60px;
-    border:1px solid #dfe6ec;
-    background-color: #eef1f6;
-  }
-  td{
-    border:1px solid #dfe6ec;
-    text-align: center;
-  }
-  tr:hover{
-    cursor: pointer;
-    background-color: #eef1f6;
-  }
-  table{
-    width: 100%;
-    border-collapse: collapse;
-  tr {
-    height: 30px;
-    border-bottom: 1px solid #dfe6ec;
-  }
-  tr:last-child{
-    border-bottom: none;
-  }
-  }
-  .table-edit{
-    color: #409EFF;
-  }
-}
-</style>
-
