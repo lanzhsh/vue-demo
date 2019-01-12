@@ -14,6 +14,7 @@ const ComTable=()=>import('@/page/tableClassify/ComTable')
 const SpeTable=()=>import('@/page/tableClassify/SpeTable')
 const MergeTable=()=>import('@/page/tableClassify/MergeTable')
 const Drag=()=>import('@/page/tableClassify/Drag')
+const MultiCheck=()=>import('@/page/tableClassify/MultiCheck')
 
 //富文本
 const TextEditor=()=>import('@/page/richText/TextEditor')
@@ -34,15 +35,23 @@ export default new Router({
       name: 'home',
       component: Home,
       children:[
+        //数据可视化
         {path:'/map',name:'map',component:Map},
         {path:'/comEcharts',name:'comEcharts',component:ComEcharts},
         {path:'/speEcharts',name:'speEcharts',component:SpeEcharts},
+
+        //表格
         {path:'/comTable',name:'comTable',component:ComTable},
         {path:'/speTable',name:'speTable',component:SpeTable},
         {path:'/mergeTable',name:'mergeTable',component:MergeTable},
+        {path:'/drag',name:'drag',component:Drag},
+        {path:'/multiCheck',name:'multiCheck',component:MultiCheck},
+
+        //文本
         {path:'/textEditor',name:'textEditor',component:TextEditor},
         {path:'/customEditor',name:'customEditor',component:CustomEditor},
-        {path:'/drag',name:'drag',component:Drag},
+
+        //文件
         {path:'/fileCloud',name:'fileCloud',component:FileCloud},
         {path:'/uploadFile',name:'uploadFile',component:UploadFile},
         {path:'/uploadImg',name:'uploadImg',component:UploadImg},

@@ -54,7 +54,8 @@ export default {
             { index: "2-1", content: "普通表格", routerData: "comTable" },
             { index: "2-2", content: "可编辑表格", routerData: "speTable" },
             { index: "2-3", content: "表格合并", routerData: "mergeTable" },
-            { index: "2-4", content: "拖拽", routerData: "drag" }
+            { index: "2-4", content: "拖拽", routerData: "drag" },
+            { index: "2-5", content: "复选框", routerData: "multiCheck" },
           ]
         },
         //只有一级目录配置
