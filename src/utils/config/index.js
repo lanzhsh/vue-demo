@@ -1,10 +1,23 @@
-let API_ROOT='';
-if(location.hostname.indexOf('dev-')!=-1
-  ||location.hostname.indexOf('test-')!=-1
-  ||location.hostname.indexOf('prod-')!=-1){
-    API_ROOT=`https://${location.hostname}`;
-}else{
-  API_ROOT=`http://localhost:5220`
+let API_ROOT = '',host=location.host
+switch(host){
+  case 'pre.my.com':
+    API_ROOT='pre'
+    break
+  case 'test.my.com':
+    API_ROOT='test'
+    break
+  case 'checkout.my.com':
+    API_ROOT='checkout'
+    break
+  case 'business.my.com':
+    API_ROOT='prod'
+    break
+  default:
+    API_ROOT='http://localhost:5220'
+    break
+}
+export {
+  API_ROOT
 }
 
 export default API_ROOT
