@@ -16,7 +16,9 @@
       <el-table-column
         prop="date"
         label="日期"
-        width="180">
+        width="180"
+        :render-header="renderDateHeader"
+        >
       </el-table-column>
       <el-table-column
         prop="name"
@@ -57,6 +59,7 @@
   
 
 <script>
+import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 import addTable from '@/components/addTable';
 export default {
@@ -71,7 +74,7 @@ export default {
       addFlag:{flag:false},
       multipleSelection: [],
       editTableData:'',
-      comInp:''
+      comInp:'',
     }
   },
   computed: mapGetters({
@@ -83,9 +86,36 @@ export default {
       this.comData=val;
       this.totalItems=val.length;
     },
-    comInp(val){
-      console.log('comInp值为',val);   
-    }
+  },
+  created(){
+    // 自定义表头组件
+    Vue.component("TableHeaderComponent", {
+      template: `<div>
+            {{title}}
+            <el-input size="mini" v-model.trim="value" style="width:118px;padding:0 0px;line-height:28px;top:10px;position:relative;"></el-input>
+            <el-dropdown
+              trigger="click"
+              @command="handleCommand"
+              style="padding:0;line-height:16px;position:relative;top:4px;">
+                <i class="el-icon-caret-bottom" style="position:relative;color:#1AAD19;cursor:pointer">应用</i>
+                <el-dropdown-menu slot="dropdown" >
+                  <el-dropdown-item :command="1">应用到所有规格</el-dropdown-item>
+                  <el-dropdown-item :command="2">仅应用到未填写</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+          </div>`,
+      props: ["callbackFnName", "title"],
+      data: function() {
+        return {
+          value: ""
+        };
+      },
+      methods: {
+        handleCommand(command) {
+          this.$emit(this.callbackFnName, this.value, command);
+        }
+      }
+    })
   },
   mounted() {
     this.getAllData();
@@ -135,7 +165,17 @@ export default {
       this.totalItems=this.comData.length;
       this.currentPage=1;
       this.pageSize=4;
-    }
+    },
+    renderDateHeader(h, { column, $index }) {
+      return h("TableHeaderComponent", {
+        props: { title: "售价", callbackFnName: "assignDate" },
+        on: { assignDate: this.assignDate }
+      });
+    },
+    assignDate(value, type) {
+      let _this = this;
+      console.log('表头事件assignDate执行了');
+    },
   }
 };
 </script>
